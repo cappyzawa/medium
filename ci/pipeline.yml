@@ -1,0 +1,26 @@
+resource_types:
+  - name: medium
+    type: registry-image
+    source:
+      repository: cappyzawa/medium-resource
+      tag: latest
+resources:
+  - name: blog-repo
+    type: git
+    source:
+      uri: https://github.com/cappyzawa/medium
+  - name: blog
+    type: medium
+    source:
+      access_token: ((medium-token))
+jobs:
+  - name: publish-to-medium
+    build_logs_to_retain: 10
+    plan:
+      - get: blog-repo
+        trigger: true
+      - task: prepare
+        file: blog-repo/ci/tasks/prepare.yml
+      - put: blog
+        params:
+          content_file: competed/latest.md

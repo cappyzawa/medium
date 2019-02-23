@@ -1,0 +1,22 @@
+---
+platform: linux
+
+image_resource:
+  type: registry-image
+  source:
+    repository: concourse/builroot
+    tag: curl-jq
+
+inputs:
+  - name: blog-repo
+
+outputs:
+  - name: completed
+
+run:
+  path: sh
+  args:
+    - -c
+    - |
+      latest=`ls -r blog-repo/docs | head -1`
+      mv blog-repo/docs/${latest} competed/latest.md
