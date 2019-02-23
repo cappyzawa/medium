@@ -19,4 +19,5 @@ run:
     - -c
     - |
       latest=`ls -r blog-repo/docs | head -1`
-      mv blog-repo/docs/${latest} competed/latest.md
+      cp blog-repo/docs/${latest} completed/latest.md
+      
