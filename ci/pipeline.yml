@@ -9,6 +9,7 @@ resources:
     type: git
     source:
       uri: https://github.com/cappyzawa/medium
+      path: docs/*
   - name: blog
     type: medium
     source:
