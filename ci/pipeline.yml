@@ -1,3 +1,4 @@
+---
 resource_types:
   - name: medium
     type: registry-image
@@ -10,7 +11,7 @@ resources:
     source:
       uri: https://github.com/cappyzawa/medium
       paths:
-      - docs/*
+        - docs/*
   - name: blog
     type: medium
     source:
