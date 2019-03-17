@@ -20,4 +20,3 @@ run:
     - |
       latest=`ls -r blog-repo/docs | head -1`
       cp blog-repo/docs/${latest} completed/latest.md
-      
